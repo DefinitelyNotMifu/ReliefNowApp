@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Donation Online</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="../assets/image/favicons/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="../assets/image/favicons/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="../assets/image/favicons/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="../assets/image/favicons/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="../assets/image/favicons/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="../assets/image/favicons/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="../assets/image/favicons/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="../assets/image/favicons/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../assets/image/favicons/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="../assets/image/favicons/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../assets/image/favicons/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="../assets/image/favicons/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../assets/image/favicons/favicon-16x16.png"
+        />
+        <link rel="manifest" href="../assets/image/favicons/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="../assets/image/favicons/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Bootstrap CSS v5.3.3 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../assets/fonts/stylesheet.css" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../assets/css/reset.css" />
+        <link rel="stylesheet" href="../assets/css/base.css" />
+        <link rel="stylesheet" href="../assets/css/styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="content">
+                <nav class="navbar">
+                    <a href="index.html">
+                        <img
+                            src="../assets/image/logo.svg"
+                            alt="Donation"
+                            class="logo"
+                        />
+                    </a>
+
+                    <ul class="navbar__list">
+                        <li class="navbar__item">
+                            <a
+                                href="./index.html"
+                                class="navbar__item--link navbar__item--active"
+                                >Trang chủ</a
+                            >
+                        </li>
+
+                        <li class="navbar__item">
+                            <a href="./news.html" class="navbar__item--link"
+                                >Tin tức</a
+                            >
+                        </li>
+
+                        <li class="navbar__item dropdown">
+                            <a
+                                href="./news.html"
+                                class="navbar__item--link dropdown-toggle"
+                                id="navbarMapDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Bản đồ
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarMapDropdown"
+                            >
+                                <li>
+                                    <a
+                                        class="dropdown-item navbar__item--link"
+                                        href="#"
+                                        >Bản đồ tình hình lũ</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item navbar__item--link"
+                                        href="#"
+                                        >Bản đồ phân bố cứu trợ</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="navbar__item">
+                            <a href="./donate.html" class="navbar__item--link"
+                                >Ủng hộ</a
+                            >
+                        </li>
+                    </ul>
+
+                    <section id="auth" class="navbar__btn--wrap">
+                        <a
+                            id="linkLogin"
+                            class="navbar__btn--link"
+                            href="./login.html"
+                            >Đăng nhập</a
+                        >
+                        <a
+                            id="linkLogout"
+                            class="btn navbar--btn"
+                            href="#"
+                            onclick="logout()"
+                            style="display: none"
+                            >Đăng xuất</a
+                        >
+                    </section>
+
+                    <section
+                        id="userDropdown"
+                        class="navbar__item dropdown navbar__btn--wrap"
+                        style="display: none"
+                    >
+                        <a
+                            href="#"
+                            class="navbar__item--link dropdown-toggle"
+                            id="navbarUserDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <span id="usernameDisplay"></span>
+                        </a>
+                        <ul
+                            class="dropdown-menu"
+                            aria-labelledby="navbarUserDropdown"
+                        >
+                            <li>
+                                <a
+                                    class="dropdown-item navbar__item--link"
+                                    href="#"
+                                    >Thông tin cá nhân</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="dropdown-item navbar__item--link"
+                                    href="#"
+                                    onclick="logout(event)"
+                                    >Đăng xuất</a
+                                >
+                            </li>
+                        </ul>
+                    </section>
+                </nav>
+
+                <section class="header__info">
+                    <figure class="info__figure">
+                        <img
+                            src="../assets/image/catastrophe_01.webp"
+                            alt="Catastrophe"
+                            class="info__figure--img"
+                        />
+                        <img
+                            src="../assets/image/catastrophe_02.jpg"
+                            alt="Catastrophe"
+                            class="info__figure--img"
+                        />
+                    </figure>
+                    <figcaption class="info__figcaption">
+                        <h1 class="header__title">Lá lành đùm lá rách.</h1>
+                        <p class="header__desc">
+                            Bầu ơi thương lấy bí cùng
+                            <br />
+                            Tuy rằng khác giống nhưng chung một giàn
+                        </p>
+                        <p class="header__desc">
+                            Bạn mong muốn góp một chút tình cảm cho những con
+                            người đang gặp khó khăn?
+                        </p>
+                        <section class="header__contact">
+                            <button class="btn navbar--btn">Quyên góp</button>
+                            <a
+                                href="tel:0999999999"
+                                class="header__contact--phone"
+                            >
+                                hoặc liên hệ 0999999999
+                            </a>
+                        </section>
+                    </figcaption>
+                </section>
+            </div>
+        </header>
+
+        <main>
+            <section class="aboutUs">
+                <div class="content">
+                    <header class="aboutUs__header">
+                        <h2 class="aboutUs__title">Thông tin Thiện nguyện</h2>
+                        <p class="aboutUs__desc">
+                            Đây là ứng dụng cho phép cho đi và nhận lại, san sẻ
+                            khó khăn giữa đồng bào với nhau. Một cách minh bạch,
+                            mọi thứ bạn cho đi sẽ đảm bảo tới tay người cần nhận
+                        </p>
+                    </header>
+
+                    <figure class="aboutUs__figure">
+                        <img
+                            src="../assets/image/typhoon_01.jpg"
+                            alt="Donation"
+                            class="aboutUs__img"
+                        />
+                        <figcaption class="aboutUs__figcation">
+                            <article class="aboutUs__article">
+                                <img
+                                    src="../assets/image/x.svg"
+                                    alt="Donation"
+                                    class="aboutUs__article--img"
+                                />
+                                <div class="aboutUs__article--wrap">
+                                    <h3 class="aboutUs__article--title">
+                                        Minh bạch
+                                    </h3>
+                                    <p class="aboutUs__article--desc">
+                                        Công khai số tiền ủng hộ, tra cứu xem
+                                        hàng hỗ trợ đã tới được đâu, đến được
+                                        với ai
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="aboutUs__article">
+                                <img
+                                    src="../assets/image/x.svg"
+                                    alt="Donation"
+                                    class="aboutUs__article--img"
+                                />
+                                <div class="aboutUs__article--wrap">
+                                    <h3 class="aboutUs__article--title">
+                                        Tiện lợi
+                                    </h3>
+                                    <p class="aboutUs__article--desc">
+                                        Đa dạng về hình thức từ thiện (tiền mặt
+                                        hoặc hiện vật). Bạn có thể ủng hộ mọi
+                                        lúc, mọi nơi.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="aboutUs__article">
+                                <img
+                                    src="../assets/image/x.svg"
+                                    alt="Donation"
+                                    class="aboutUs__article--img"
+                                />
+                                <div class="aboutUs__article--wrap">
+                                    <h3 class="aboutUs__article--title">
+                                        Nhanh chóng
+                                    </h3>
+                                    <p class="aboutUs__article--desc">
+                                        Cập nhật nhanh chóng, chính xác thông
+                                        tin bão lũ, thiên tại. Tình trạng phân
+                                        bố cứu trợ của các địa phương
+                                    </p>
+                                </div>
+                            </article>
+
+                            <button class="btn aboutUs__btn">
+                                Tất cả thông tin
+                            </button>
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="news">
+                <div class="content">
+                    <h3 class="news__title">Tin tức</h3>
+
+                    <section class="news__section">
+                        <article class="news__article">
+                            <img
+                                src="../assets/image/find.svg"
+                                alt="Find Information"
+                                class="news__artical__img"
+                            />
+                            <h3 class="news__article--title">
+                                Lorem ipsum dolor sit.
+                            </h3>
+                            <p class="news__article--desc">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Omnis, aspernatur?
+                            </p>
+                            <a href="#" class="news__article--link">Chi tiết</a>
+                        </article>
+
+                        <article class="news__article">
+                            <img
+                                src="../assets/image/find.svg"
+                                alt="Find Information"
+                                class="news__artical__img"
+                            />
+                            <h3 class="news__article--title">
+                                Lorem ipsum dolor sit.
+                            </h3>
+                            <p class="news__article--desc">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Omnis, aspernatur?
+                            </p>
+                            <a href="#" class="news__article--link">Chi tiết</a>
+                        </article>
+
+                        <article class="news__article">
+                            <img
+                                src="../assets/image/find.svg"
+                                alt="Find Information"
+                                class="news__artical__img"
+                            />
+                            <h3 class="news__article--title">
+                                Lorem ipsum dolor sit.
+                            </h3>
+                            <p class="news__article--desc">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Omnis, aspernatur?
+                            </p>
+                            <a href="#" class="news__article--link">Chi tiết</a>
+                        </article>
+                    </section>
+                </div>
+            </section>
+
+            <section class="contact">
+                <div class="content">
+                    <h2 class="contact__title">Đóng góp cho chúng tôi</h2>
+                    <p class="contact__desc">
+                        Để lại nhận xét của bạn về tình hình quyên góp và nhận
+                        hỗ trợ.
+                    </p>
+                    <a href="#!">
+                        <button class="btn contact__btn">Đánh giá</button>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="content">
+                <div class="footer__wrap">
+                    <section class="footer__info">
+                        <a href="index.html">
+                            <img
+                                src="../assets/image/logo.svg"
+                                alt="Donation"
+                                class="logo"
+                            />
+                        </a>
+                        <p class="footer__desc">
+                            Một tấm lòng cho đi, một nụ cười nhận lại. Chung sức
+                            cùng dân tộc vượt qua bão lũ.
+                        </p>
+                    </section>
+
+                    <section class="footer__contact">
+                        <article class="footer__article">
+                            <h3 class="footer__article--title">Tư vấn</h3>
+                            <a href="#!" class="footer__article--link"
+                                >Trung tâm tư vấn</a
+                            >
+                            <a href="#!" class="footer__article--link"
+                                >Thông tin Tài khoản</a
+                            >
+                            <a href="#!" class="footer__article--link"
+                                >Điều khoản</a
+                            >
+                            <a href="#!" class="footer__article--link"
+                                >Xuất hóa đơn sao kê</a
+                            >
+                            <a href="#!" class="footer__article--link"
+                                >Liên hệ</a
+                            >
+                        </article>
+                    </section>
+
+                    <section class="footer__social">
+                        <h3 class="footer__social--title">Thông tin liên hệ</h3>
+                        <div class="footer__social--wrap">
+                            <a href="#!" class="footer__social--link">
+                                <img
+                                    src="../assets/image/fb.svg"
+                                    alt="Facebook"
+                                    class="footer__social--img"
+                                />
+                            </a>
+
+                            <a href="#!" class="footer__social--link">
+                                <img
+                                    src="../assets/image/x.svg"
+                                    alt="X"
+                                    class="footer__social--img"
+                                />
+                            </a>
+
+                            <a href="#!" class="footer__social--link">
+                                <img
+                                    src="../assets/image/zalo.svg"
+                                    alt="Zalo"
+                                    class="footer__social--img"
+                                />
+                            </a>
+                        </div>
+                        <h3 class="footer__social--title">Thư điện tử</h3>
+                        <p class="footer__social--desc">
+                            Liên hệ với chúng tôi qua thư điện tử
+                        </p>
+                        <div class="footer__social--subscribe">
+                            <input
+                                type="text"
+                                placeholder="Nhập email của bạn..."
+                                class="footer__social--input"
+                            />
+                            <button class="btn footer__btn">Gửi</button>
+                        </div>
+                    </section>
+                </div>
+
+                <p class="footer__policy">© 2024 MIFU. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/main.js"></script>
+    </body>
+</html>
