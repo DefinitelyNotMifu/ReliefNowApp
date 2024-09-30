@@ -13,6 +13,11 @@
 .logo {
     width: 150px;
     height: 150px;
+    transition: transform 0.2s;
+}
+
+.logo:hover {
+    transform: scale(1.2);
 }
 
 .navbar__list {
@@ -426,14 +431,15 @@
     margin-top: 20px;
 }
 
-/* News */
+/* Feedback */
 
-.news {
+.feedback {
     padding: 100px 0;
     background: #f6fbff;
 }
 
-.news__title {
+.feedback__title {
+    text-align: center;
     font-weight: 600;
     font-size: 5rem;
     line-height: 6rem;
@@ -441,7 +447,7 @@
     color: var(--primary-color);
 }
 
-.news__desc {
+.feedback__desc {
     margin-top: 18px;
     font-weight: 300;
     font-size: 1.8rem;
@@ -449,13 +455,19 @@
     color: #575f66;
 }
 
-.news__section {
+.feedback__section {
     margin-top: 70px;
     display: flex;
     gap: 30px;
 }
 
-.news__article {
+.feedback__artical__img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.feedback__article {
     padding: 42px;
     width: 370px;
     background: #fff;
@@ -463,11 +475,11 @@
     border: solid 16px #eaf6ff;
 }
 
-.news__article:hover {
+.feedback__article:hover {
     border: solid 16px #2e80ce;
 }
 
-.news__article--title {
+.feedback__article--title {
     margin-top: 18px;
     font-weight: 600;
     font-size: 2.6rem;
@@ -475,7 +487,7 @@
     color: var(--primary-color);
 }
 
-.news__article--desc {
+.feedback__article--desc {
     margin-top: 28px;
     font-weight: 300;
     font-size: 1.6rem;
@@ -483,7 +495,7 @@
     color: #575f66;
 }
 
-.news__article--link {
+.feedback__article--link {
     display: inline-block;
     margin-top: 18px;
     font-weight: 400;
@@ -555,6 +567,11 @@
 
 .blog-item {
     margin-bottom: 50px;
+    transition: transform 0.2s;
+}
+
+.blog-item:hover {
+    transform: scale(1.02);
 }
 
 .blog-item__img-wrap {
@@ -635,6 +652,107 @@
 .pagination .page-item a.page-link:hover {
     background-color: #28a745;
     color: white;
+}
+
+/* Information */
+.information {
+    padding: 50px 0 250px 0;
+}
+
+.information__title {
+    font-weight: 500;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 6rem;
+    letter-spacing: -2%;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.information__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.information__table th,
+.information__table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.information__table th {
+    background-color: #b0daf1;
+    text-align: left;
+}
+
+.information__table tr {
+    transition: transform 0.2s;
+}
+.information__table td {
+    background-color: #d2e8f1;
+    text-align: left;
+}
+
+.information__table tr:hover {
+    background-color: #f5f5f5;
+    color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+
+    background-color: #e0e0e0;
+}
+
+/* Donation */
+.donation {
+    padding: 30px 0 100px 0;
+}
+
+.donation__title {
+    position: relative;
+    font-weight: 600;
+    font-size: 5rem;
+    line-height: 6rem;
+    letter-spacing: -2%;
+    color: var(--primary-color);
+}
+
+#donationForm {
+    margin-top: 20px;
+}
+
+#donationForm div label {
+    font-weight: 600;
+    font-size: 2.2rem;
+    line-height: 1.55;
+    color: #000958;
+}
+#donationType,
+#donationAmount,
+#donationMethod {
+    height: 50px;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+}
+
+#inKindDonation h4 {
+    font-weight: 600;
+    font-size: 2.2rem;
+    line-height: 1.55;
+    color: #000958;
+    margin-bottom: 20px;
+}
+
+#inKindDonation th,
+#inKindDonation tr {
+    height: 50px;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+}
+
+#addInKindItem {
+    margin: 30px 0 40px 0;
 }
 
 /* Footer */
@@ -763,51 +881,4 @@
     background: #406181;
     bottom: 42px;
     left: 0;
-}
-
-/* Information */
-.information {
-    padding: 50px 0 250px 0;
-}
-
-.information__title {
-    font-weight: 500;
-    font-size: 3rem;
-    text-align: center;
-    line-height: 6rem;
-    letter-spacing: -2%;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-.information__table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.information__table th,
-.information__table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-}
-
-.information__table th {
-    background-color: #b0daf1;
-    text-align: left;
-}
-
-.information__table tr {
-    transition: transform 0.2s;
-}
-.information__table td {
-    background-color: #d2e8f1;
-    text-align: left;
-}
-
-.information__table tr:hover {
-    background-color: #f5f5f5;
-    color: #333;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transform: scale(1.02);
-    background-color: #e0e0e0;
 }

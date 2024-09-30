@@ -10,10 +10,7 @@ dotenv.config();
 const app = express();
 
 mongoose
-    .connect(process.env.MONGO_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
+    .connect(process.env.MONGO_URL)
     .then(() => {
         console.log("Connect to MongoDB Atlas successfully!");
     })

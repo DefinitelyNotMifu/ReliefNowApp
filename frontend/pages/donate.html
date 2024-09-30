@@ -230,7 +230,114 @@
             </div>
         </header>
 
-        <main></main>
+        <main>
+            <section class="donation">
+                <div class="content">
+                    <h2 class="donation__title text-center">
+                        Đóng Góp Từ Thiện
+                    </h2>
+                    <form id="donationForm">
+                        <div class="mb-3">
+                            <label for="donationType" class="form-label"
+                                >Loại ủng hộ</label
+                            >
+                            <select
+                                class="form-select"
+                                id="donationType"
+                                required
+                            >
+                                <option value="" disabled selected>
+                                    Chọn loại ủng hộ...
+                                </option>
+                                <option value="money">Tiền</option>
+                                <option value="inKind">Hiện vật</option>
+                            </select>
+                        </div>
+
+                        <div id="moneyDonation" style="display: none">
+                            <div class="mb-3">
+                                <label for="donationAmount" class="form-label"
+                                    >Số tiền đóng góp (VND)</label
+                                >
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="donationAmount"
+                                    placeholder="Nhập số tiền..."
+                                    required
+                                />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="donationMethod" class="form-label"
+                                    >Hình thức thanh toán</label
+                                >
+                                <select
+                                    class="form-select"
+                                    id="donationMethod"
+                                    required
+                                >
+                                    <option value="" disabled selected>
+                                        Chọn hình thức...
+                                    </option>
+                                    <option value="bankTransfer">
+                                        Chuyển khoản ngân hàng
+                                    </option>
+                                    <option value="eWallet">Ví điện tử</option>
+                                    <option value="creditCard">
+                                        Thẻ tín dụng
+                                    </option>
+                                    <option value="cash">Tiền mặt</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="inKindDonation" style="display: none">
+                            <h4>Nhập thông tin hiện vật</h4>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Tên hiện vật</th>
+                                        <th>Số lượng</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inKindTableBody">
+                                    <tr>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="Nhập tên hiện vật..."
+                                                required
+                                            />
+                                        </td>
+                                        <td>
+                                            <input
+                                                type="number"
+                                                class="form-control"
+                                                placeholder="Nhập số lượng..."
+                                                required
+                                            />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                id="addInKindItem"
+                            >
+                                Thêm hiện vật
+                            </button>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Đóng góp
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
 
         <footer class="footer">
             <div class="content">
@@ -319,4 +426,80 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <script src="../assets/js/main.js"></script>
     </body>
+
+    <script>
+        // Hiện thị trường cho loại ủng hộ
+        document
+            .getElementById("donationType")
+            .addEventListener("change", function () {
+                const moneyDonation = document.getElementById("moneyDonation");
+                const inKindDonation =
+                    document.getElementById("inKindDonation");
+
+                if (this.value === "money") {
+                    moneyDonation.style.display = "block";
+                    inKindDonation.style.display = "none";
+                } else if (this.value === "inKind") {
+                    moneyDonation.style.display = "none";
+                    inKindDonation.style.display = "block";
+                }
+            });
+
+        // Thêm dòng mới vào bảng hiện vật
+        document
+            .getElementById("addInKindItem")
+            .addEventListener("click", function () {
+                const newRow = document.createElement("tr");
+                newRow.innerHTML = `
+                <td>
+                    <input type="text" class="form-control" placeholder="Nhập tên hiện vật..." required />
+                </td>
+                <td>
+                    <input type="number" class="form-control" placeholder="Nhập số lượng..." required />
+                </td>
+            `;
+                document.getElementById("inKindTableBody").appendChild(newRow);
+            });
+
+        document
+            .getElementById("donationForm")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
+                const donationType =
+                    document.getElementById("donationType").value;
+
+                if (donationType === "money") {
+                    const amount =
+                        document.getElementById("donationAmount").value;
+                    const method =
+                        document.getElementById("donationMethod").value;
+                    console.log(`Đã đóng góp ${amount} VND qua ${method}.`);
+                } else if (donationType === "inKind") {
+                    const inKindItems = [];
+                    const rows = document.querySelectorAll(
+                        "#inKindTableBody tr"
+                    );
+
+                    rows.forEach((row) => {
+                        const itemName =
+                            row.querySelector('input[type="text"]').value;
+                        const itemQuantity = row.querySelector(
+                            'input[type="number"]'
+                        ).value;
+                        inKindItems.push({
+                            name: itemName,
+                            quantity: itemQuantity,
+                        });
+                    });
+
+                    console.log("Đã đóng góp hiện vật:", inKindItems);
+                }
+
+                alert("Cảm ơn bạn đã đóng góp từ thiện!");
+                this.reset(); // Reset biểu mẫu
+                document.getElementById("moneyDonation").style.display = "none";
+                document.getElementById("inKindDonation").style.display =
+                    "none"; // Ẩn phần hiện vật
+            });
+    </script>
 </html>
