@@ -13,16 +13,16 @@ const {
 
 const router = express.Router();
 
-// reigister
+// REGISTER
 router.post("/register", authRegister);
 
-// login
+// LOGIN
 router.post("/login", authLogin);
 
-// refresh
+// REFRESH TOKEN
 router.post("/refresh", requestRefreshToken);
 
-//logout
+// LOGOUT
 router.post("/logout", verifyToken, userLogout);
 
 module.exports = router;

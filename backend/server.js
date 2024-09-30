@@ -15,22 +15,28 @@ mongoose
         useUnifiedTopology: true,
     })
     .then(() => {
-        console.log("Kết nối đến MongoDB Atlas thành công!");
+        console.log("Connect to MongoDB Atlas successfully!");
     })
     .catch((err) => {
-        console.error("Không thể kết nối đến MongoDB");
+        console.log(err);
+        console.error("Cannot connect to MongoDB");
     });
 
+// ENABLES CORS
 app.use(cors());
+
+// COOKIE-PARSER
 app.use(cookieParser());
+
+// JSON PAYLOADS
 app.use(express.json());
 
-app.listen(8000, () => {
-    console.log("Server is running");
+// START SERVER
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
 
 // ROUTES
-app.use("/v1/auth", authRoute);
-app.use("/v1/user", userRoute);
-
-// AUTHENTICATION
+app.use("/auth", authRoute);
+app.use("/user", userRoute);

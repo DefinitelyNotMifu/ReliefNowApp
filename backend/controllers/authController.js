@@ -1,40 +1,10 @@
-const User = require("../models/users");
+const User = require("../models/usersModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 let refreshTokens = [];
 
-const authRegister = async (req, res) => {
-    const {
-        username,
-        email,
-        phoneNumber,
-        address,
-        role,
-        password,
-        password_confirmation,
-    } = req.body;
-
-    try {
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
-
-        const newUser = await new User({
-            username: username,
-            email: email,
-            phoneNumber,
-            address,
-            password: hashedPassword,
-        });
-
-        const user = await newUser.save();
-
-        res.status(200).json(user);
-    } catch (error) {
-        res.status(500).json(error);
-    }
-};
-
+// GENERATE ACCESS TOKEN
 const accessTokenGenerate = (user) => {
     return jwt.sign(
         {
@@ -46,6 +16,7 @@ const accessTokenGenerate = (user) => {
     );
 };
 
+// GENERATE REFRESH TOKEN
 const refreshTokenGenerate = (user) => {
     return jwt.sign(
         {
@@ -57,7 +28,64 @@ const refreshTokenGenerate = (user) => {
     );
 };
 
-// Login
+// TAKE REFRESH TOKEN
+const requestRefreshToken = async (req, res) => {
+    const refreshToken = req.cookies.refreshToken;
+    if (!refreshToken) return res.status(401).json("You are not authenticated");
+    if (!refreshTokens.includes(refreshToken)) {
+        return res.status(403).json("Refresh token is not valid");
+    }
+
+    jwt.verify(refreshToken, process.env.JWT_REFRESH_KEY, (err, user) => {
+        if (err) {
+            console.log(err);
+        }
+
+        refreshTokens = refreshTokens.filter((token) => token !== refreshToken);
+
+        const newAccessToken = accessTokenGenerate(user);
+        const newRefreshToken = refreshTokenGenerate(user);
+
+        refreshTokens.push(newRefreshToken);
+
+        res.cookie("refreshToken", newRefreshToken, {
+            httpOnly: true,
+            secure: false,
+            path: "/",
+            sameSite: "strict",
+        });
+
+        res.status(200).json({ accessToken: newAccessToken });
+    });
+};
+
+// REGISTER
+const authRegister = async (req, res) => {
+    const { fullname, username, email, phoneNumber, address, role, password } =
+        req.body;
+    try {
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        const newUser = await new User({
+            fullname: fullname,
+            username: username,
+            email: email,
+            phoneNumber: phoneNumber,
+            address: address,
+            role: role,
+            password: hashedPassword,
+        });
+
+        const user = await newUser.save();
+
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+};
+
+// LOGIN
 const authLogin = async (req, res) => {
     try {
         const user = await User.findOne({ username: req.body.username });
@@ -96,38 +124,7 @@ const authLogin = async (req, res) => {
     }
 };
 
-const requestRefreshToken = async (req, res) => {
-    // Take refresh token from user
-    const refreshToken = req.cookies.refreshToken;
-    if (!refreshToken) return res.status(401).json("You are not authenticated");
-    if (!refreshTokens.includes(refreshToken)) {
-        return res.status(403).json("Refresh token is not valid");
-    }
-
-    jwt.verify(refreshToken, process.env.JWT_REFRESH_KEY, (err, user) => {
-        if (err) {
-            console.log(err);
-        }
-
-        refreshTokens = refreshTokens.filter((token) => token !== refreshToken);
-
-        // Create new acccess & refresh Token
-        const newAccessToken = accessTokenGenerate(user);
-        const newRefreshToken = refreshTokenGenerate(user);
-
-        refreshTokens.push(newRefreshToken);
-
-        res.cookie("refreshToken", newRefreshToken, {
-            httpOnly: true,
-            secure: false,
-            path: "/",
-            sameSite: "strict",
-        });
-
-        res.status(200).json({ accessToken: newAccessToken });
-    });
-};
-
+// LOGOUT
 const userLogout = async (req, res) => {
     res.clearCookie("refreshToken");
     refreshTokens = refreshTokens.filter(

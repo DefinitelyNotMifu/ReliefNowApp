@@ -95,6 +95,9 @@
             crossorigin="anonymous"
         />
 
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css" />
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../assets/fonts/stylesheet.css" />
 
@@ -105,6 +108,7 @@
     </head>
     <body>
         <header class="header">
+            <div id="myToast"></div>
             <div class="content">
                 <nav class="navbar">
                     <a href="index.html">
@@ -169,12 +173,58 @@
                         </li>
                     </ul>
 
-                    <section class="navbar__btn--wrap">
+                    <section id="auth" class="navbar__btn--wrap">
                         <a
-                            class="navbar__btn--link linkLogin"
+                            id="linkLogin"
+                            class="navbar__btn--link"
                             href="./login.html"
                             >Đăng nhập</a
                         >
+                        <a
+                            id="linkLogout"
+                            class="btn navbar--btn"
+                            href="#"
+                            onclick="logout()"
+                            style="display: none"
+                            >Đăng xuất</a
+                        >
+                    </section>
+
+                    <section
+                        id="userDropdown"
+                        class="navbar__item dropdown navbar__btn--wrap"
+                        style="display: none"
+                    >
+                        <a
+                            href="#"
+                            class="navbar__item--link dropdown-toggle"
+                            id="navbarUserDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <span id="usernameDisplay">Hi, Mifu</span>
+                        </a>
+                        <ul
+                            class="dropdown-menu"
+                            aria-labelledby="navbarUserDropdown"
+                        >
+                            <li>
+                                <a
+                                    class="dropdown-item navbar__item--link"
+                                    href="./information.html"
+                                    >Thông tin cá nhân</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="dropdown-item navbar__item--link"
+                                    href="#"
+                                    onclick="logout(event)"
+                                    >Đăng xuất</a
+                                >
+                            </li>
+                        </ul>
                     </section>
                 </nav>
             </div>
@@ -189,10 +239,26 @@
                             method="post"
                             id="formRegister"
                             onsubmit="register(event)"
+                            enctype="multipart/form-data"
                         >
                             <h3 class="heading">Đăng Ký</h3>
 
                             <div class="spacer"></div>
+
+                            <div class="form-group">
+                                <label for="fullname" class="form-label"
+                                    >Họ và tên</label
+                                >
+                                <input
+                                    id="fullname"
+                                    name="fullname"
+                                    type="text"
+                                    placeholder="VD: Nguyễn Minh Phúc"
+                                    class="form-control"
+                                    required
+                                />
+                                <span class="form-message"></span>
+                            </div>
 
                             <div class="form-group">
                                 <label for="username" class="form-label"
@@ -202,8 +268,11 @@
                                     id="username"
                                     name="username"
                                     type="text"
-                                    placeholder="VD: MifuVipPro1234"
+                                    placeholder="VD: MifuDepTrai"
                                     class="form-control"
+                                    pattern="^[[A-Z]|[a-z]][[A-Z]|[a-z]|\\d|[_]]{7,29}$"
+                                    minlength="4"
+                                    maxlength="16"
                                     required
                                 />
                                 <span class="form-message"></span>
@@ -224,6 +293,7 @@
                                 />
                                 <span class="form-message"></span>
                             </div>
+
                             <div class="form-group">
                                 <label for="phoneNumber" class="form-label"
                                     >Số điện thoại</label
@@ -234,11 +304,14 @@
                                     type="text"
                                     placeholder="Nhập Số điện thoại của bạn..."
                                     class="form-control"
+                                    minlength="5"
+                                    maxlength="20"
                                     required
                                     pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
                                 />
                                 <span class="form-message"></span>
                             </div>
+
                             <div class="form-group">
                                 <label for="address" class="form-label"
                                     >Địa chỉ</label
@@ -271,13 +344,10 @@
                                         Người Đóng Góp
                                     </option>
                                     <option value="recipient">
-                                        Người Nhận Hỗ Trợ
+                                        Người Cần Hỗ Trợ
                                     </option>
                                     <option value="organization">
                                         Tổ Chức Từ Thiện
-                                    </option>
-                                    <option value="administrator">
-                                        Quản Trị Hệ Thống
                                     </option>
                                 </select>
                                 <span class="form-message"></span>
@@ -297,6 +367,7 @@
                                 />
                                 <span class="form-message"></span>
                             </div>
+
                             <div class="form-group">
                                 <label
                                     for="password_confirmation"
@@ -314,6 +385,7 @@
                                 />
                                 <span class="form-message"></span>
                             </div>
+
                             <button class="form-submit">Đăng ký</button>
                         </form>
                     </div>
@@ -405,6 +477,19 @@
             </div>
         </footer>
 
+        <script>
+            document
+                .getElementById("role")
+                .addEventListener("change", function () {
+                    const uploadContainer =
+                        document.getElementById("uploadContainer");
+                    if (this.value === "organization") {
+                        uploadContainer.style.display = "block";
+                    } else {
+                        uploadContainer.style.display = "none";
+                    }
+                });
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <script src="../assets/js/main.js"></script>
     </body>

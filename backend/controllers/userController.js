@@ -1,5 +1,6 @@
-const User = require("../models/users");
+const User = require("../models/usersModel");
 
+// GET ALL USERS
 const getAllUsers = async (req, res) => {
     try {
         const users = await User.find();
@@ -9,6 +10,7 @@ const getAllUsers = async (req, res) => {
     }
 };
 
+// DELETE USERS
 const deleteUser = async (req, res) => {
     try {
         const user = await User.findByIdAndDelete(req.params.id);

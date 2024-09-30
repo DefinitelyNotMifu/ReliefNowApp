@@ -95,6 +95,9 @@
             crossorigin="anonymous"
         />
 
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css" />
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../assets/fonts/stylesheet.css" />
 
@@ -105,6 +108,7 @@
     </head>
     <body>
         <header class="header">
+            <div id="myToast"></div>
             <div class="content">
                 <nav class="navbar">
                     <a href="index.html">
@@ -173,8 +177,8 @@
                         <a
                             id="linkLogin"
                             class="navbar__btn--link"
-                            href="./login.html"
-                            >Đăng nhập</a
+                            href="./register.html"
+                            >Đăng ký</a
                         >
                         <a
                             id="linkLogout"
@@ -208,7 +212,7 @@
                             <li>
                                 <a
                                     class="dropdown-item navbar__item--link"
-                                    href="#"
+                                    href="./information.html"
                                     >Thông tin cá nhân</a
                                 >
                             </li>
@@ -226,7 +230,9 @@
             </div>
         </header>
 
-        <main></main>
+        <main>
+            <div class="content"></div>
+        </main>
 
         <footer class="footer">
             <div class="content">

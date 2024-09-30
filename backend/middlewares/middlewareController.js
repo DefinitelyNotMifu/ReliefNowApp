@@ -1,5 +1,8 @@
 const jwt = require("jsonwebtoken");
+const multer = require("multer");
+const path = require("path");
 
+// VERIFY TOKEN
 const verifyToken = (req, res, next) => {
     const token = req.headers.token;
     if (token) {
@@ -16,6 +19,7 @@ const verifyToken = (req, res, next) => {
     }
 };
 
+// VERIFY TOKEN WITH ADMIN AUTHENTICATED
 const verifyTokenandAdminAuth = (req, res, next) => {
     verifyToken(req, res, () => {
         if (req.user.id == req.params.id || req.user.admin) {
@@ -25,5 +29,15 @@ const verifyTokenandAdminAuth = (req, res, next) => {
         }
     });
 };
+
+// Thiết lập nơi lưu trữ và tên tệp
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "uploads/"); // Đường dẫn nơi lưu trữ ảnh
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + "-" + file.originalname); // Đặt tên tệp theo thời gian
+    },
+});
 
 module.exports = { verifyToken, verifyTokenandAdminAuth };

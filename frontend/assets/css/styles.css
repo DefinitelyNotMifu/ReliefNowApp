@@ -1,112 +1,5 @@
-/* Form Validation */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-html {
-    color: #333;
-    font-size: 62.5%;
-    font-family: "Open Sans", sans-serif;
-}
-.main {
-    background: #f1f1f1;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-}
-.form {
-    width: 360px;
-    min-height: 100px;
-    padding: 32px 24px;
-    text-align: center;
-    background: #fff;
-    border-radius: 2px;
-    margin: 24px;
-    align-self: center;
-    box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
-}
-.form .heading {
-    font-size: 2rem;
-}
-.form .desc {
-    text-align: center;
-    color: #636d77;
-    font-size: 1.6rem;
-    font-weight: lighter;
-    line-height: 2.4rem;
-    margin-top: 16px;
-    font-weight: 300;
-}
-
-.form-group {
-    display: flex;
-    margin-bottom: 16px;
-    flex-direction: column;
-}
-
-.form-label,
-.form-message {
-    text-align: left;
-}
-
-.form-label {
-    font-weight: 700;
-    padding-bottom: 6px;
-    line-height: 1.8rem;
-    font-size: 1.4rem;
-}
-
-.form-control {
-    height: 40px;
-    padding: 8px 12px;
-    border: 1px solid #b3b3b3;
-    border-radius: 3px;
-    outline: none;
-    font-size: 1.4rem;
-}
-
-.form-control:hover {
-    border-color: #1dbfaf;
-}
-
-.form-group.invalid .form-control {
-    border-color: #f33a58;
-}
-
-.form-group.invalid .form-message {
-    color: #f33a58;
-}
-
-.form-message {
-    font-size: 1.2rem;
-    line-height: 1.6rem;
-    padding: 4px 0 0;
-}
-
-.form-submit {
-    outline: none;
-    background-color: #1dbfaf;
-    margin-top: 12px;
-    padding: 12px 16px;
-    font-weight: 600;
-    color: #fff;
-    border: none;
-    width: 100%;
-    font-size: 14px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.form-submit:hover {
-    background-color: #1ac7b6;
-}
-
-.spacer {
-    margin-top: 36px;
-}
-
 /* Header */
+
 .header {
     background: #10375c;
 }
@@ -245,6 +138,101 @@ html {
     border-radius: 12px;
 }
 
+/* Form Validation */
+
+.form {
+    width: 360px;
+    min-height: 100px;
+    padding: 32px 24px;
+    text-align: center;
+    background: #fff;
+    border-radius: 2px;
+    margin: 24px;
+    align-self: center;
+    box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
+}
+.form .heading {
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+.form .desc {
+    text-align: center;
+    color: #636d77;
+    font-size: 1.6rem;
+    font-weight: lighter;
+    line-height: 2.4rem;
+    margin-top: 16px;
+    font-weight: 300;
+}
+
+.form-group {
+    display: flex;
+    margin-bottom: 16px;
+    flex-direction: column;
+}
+
+.form-label,
+.form-message {
+    text-align: left;
+}
+
+.form-label {
+    font-weight: 700;
+    padding-bottom: 6px;
+    line-height: 1.8rem;
+    font-size: 1.4rem;
+}
+
+.form-control {
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #b3b3b3;
+    border-radius: 3px;
+    outline: none;
+    font-size: 1.4rem;
+}
+
+.form-control:hover {
+    border-color: #1dbfaf;
+}
+
+.form-group.invalid .form-control {
+    border-color: #f33a58;
+}
+
+.form-group.invalid .form-message {
+    color: #f33a58;
+}
+
+.form-message {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding: 4px 0 0;
+}
+
+.form-submit {
+    outline: none;
+    background-color: #1dbfaf;
+    margin-top: 12px;
+    padding: 12px 16px;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.form-submit:hover {
+    background-color: #1ac7b6;
+}
+
+.spacer {
+    margin-top: 36px;
+}
+
 /* Authenticate */
 
 .authenticate {
@@ -253,7 +241,115 @@ html {
     padding: 20px 0 100px 0;
 }
 
+/* myToast */
+
+#myToast {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 999999;
+}
+
+.myToast {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 20px 0;
+    min-width: 400px;
+    max-width: 450px;
+    border-left: 4px solid;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+    transition: all linear 0.3s;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(calc(100% + 32px));
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+.myToast--success {
+    border-color: #47d864;
+}
+
+.myToast--success .myToast__icon {
+    color: #47d864;
+}
+
+.myToast--info {
+    border-color: #2f86eb;
+}
+
+.myToast--info .myToast__icon {
+    color: #2f86eb;
+}
+
+.myToast--warning {
+    border-color: #ffc021;
+}
+
+.myToast--warning .myToast__icon {
+    color: #ffc021;
+}
+
+.myToast--error {
+    border-color: #ff623d;
+}
+
+.myToast--error .myToast__icon {
+    color: #ff623d;
+}
+
+.myToast + .myToast {
+    margin-top: 24px;
+}
+
+.myToast__icon {
+    font-size: 24px;
+}
+
+.myToast__icon,
+.myToast__close {
+    padding: 0 16px;
+}
+
+.myToast__body {
+    flex-grow: 1;
+}
+
+.myToast__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.myToast__msg {
+    font-size: 14px;
+    color: #888;
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+.myToast__close {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
 /* About Us */
+
 .aboutUs {
     margin: 170px 0;
 }
@@ -558,4 +654,51 @@ html {
     background: #406181;
     bottom: 42px;
     left: 0;
+}
+
+/* Information */
+.information {
+    padding: 50px 0 250px 0;
+}
+
+.information__title {
+    font-weight: 500;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 6rem;
+    letter-spacing: -2%;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.information__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.information__table th,
+.information__table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.information__table th {
+    background-color: #b0daf1;
+    text-align: left;
+}
+
+.information__table tr {
+    transition: transform 0.2s;
+}
+.information__table td {
+    background-color: #d2e8f1;
+    text-align: left;
+}
+
+.information__table tr:hover {
+    background-color: #f5f5f5;
+    color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+    background-color: #e0e0e0;
 }
