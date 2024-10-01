@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
+const data = require("./routes/data");
 
 dotenv.config();
 const app = express();
@@ -37,3 +38,4 @@ app.listen(port, () => {
 // ROUTES
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
+app.use("/data", data);
