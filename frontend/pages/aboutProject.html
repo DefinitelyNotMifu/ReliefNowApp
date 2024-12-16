@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Donation Online</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="../assets/image/favicons/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="../assets/image/favicons/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="../assets/image/favicons/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="../assets/image/favicons/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="../assets/image/favicons/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="../assets/image/favicons/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="../assets/image/favicons/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="../assets/image/favicons/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../assets/image/favicons/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="../assets/image/favicons/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../assets/image/favicons/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="../assets/image/favicons/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../assets/image/favicons/favicon-16x16.png"
+        />
+        <link rel="manifest" href="../assets/image/favicons/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="../assets/image/favicons/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Bootstrap CSS v5.3.3 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css" />
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../assets/fonts/stylesheet.css" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../assets/css/reset.css" />
+        <link rel="stylesheet" href="../assets/css/base.css" />
+        <link rel="stylesheet" href="../assets/css/styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div id="myToast"></div>
+            <div class="content">
+                <nav class="navbar">
+                    <a href="index.html">
+                        <img
+                            src="../assets/image/logo.svg"
+                            alt="Donation"
+                            class="logo"
+                        />
+                    </a>
+
+                    <ul class="navbar__list">
+                        <li class="navbar__item">
+                            <a href="./index.html" class="navbar__item--link"
+                                >Trang chủ</a
+                            >
+                        </li>
+
+                        <li class="navbar__item">
+                            <a href="./blogs.html" class="navbar__item--link"
+                                >Tin tức</a
+                            >
+                        </li>
+
+                        <li class="navbar__item dropdown">
+                            <a
+                                href="catastrophe-maps.html"
+                                class="navbar__item--link dropdown-toggle"
+                                id="navbarMapDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Bản đồ
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarMapDropdown"
+                            >
+                                <li>
+                                    <a
+                                        class="dropdown-item navbar__item--link"
+                                        href="./catastrophe-maps.html"
+                                        >Bản đồ tình thiên tai</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item navbar__item--link"
+                                        href="./donation-maps.html"
+                                        >Bản đồ phân bố cứu trợ</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="navbar__item" id="donation">
+                            <a href="./donate.html" class="navbar__item--link"
+                                >Ủng hộ</a
+                            >
+                        </li>
+                        <li class="navbar__item" id="distribution">
+                            <a
+                                href="./distribution.html"
+                                class="navbar__item--link"
+                                >Nhận ủng hộ</a
+                            >
+                        </li>
+                        <li class="navbar__item" id="campaign">
+                            <a href="./campaign.html" class="navbar__item--link"
+                                >Chiến dịch từ thiện</a
+                            >
+                        </li>
+                    </ul>
+
+                    <section id="auth" class="navbar__btn--wrap">
+                        <a
+                            id="linkLogin"
+                            class="navbar__btn--link"
+                            href="./login.html"
+                            >Đăng nhập</a
+                        >
+                        <a
+                            id="linkLogout"
+                            class="btn navbar--btn"
+                            href="#"
+                            onclick="logout()"
+                            style="display: none"
+                            >Đăng xuất</a
+                        >
+                    </section>
+
+                    <section
+                        id="userDropdown"
+                        class="navbar__item dropdown navbar__btn--wrap"
+                        style="display: none"
+                    >
+                        <a
+                            href="#"
+                            class="navbar__item--link dropdown-toggle"
+                            id="navbarUserDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <span id="usernameDisplay">Hi, Mifu</span>
+                        </a>
+                        <ul
+                            class="dropdown-menu"
+                            aria-labelledby="navbarUserDropdown"
+                        >
+                            <li>
+                                <a
+                                    class="dropdown-item navbar__item--link"
+                                    href="./information.html"
+                                    >Thông tin cá nhân</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="dropdown-item navbar__item--link"
+                                    href="#"
+                                    onclick="logout(event)"
+                                    >Đăng xuất</a
+                                >
+                            </li>
+                        </ul>
+                    </section>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="content">
+                <section class="description">
+                    <div class="content">
+                        <h2 class="description__main--title">
+                            Mô Tả Chương Trình
+                        </h2>
+                        <section class="description__info">
+                            <h3 class="description__title">Yêu cầu</h3>
+                            <p class="description__desc">
+                                Thiết kế một ứng dụng để hỗ trợ việc quyên góp
+                                từ thiện cho các nạn nhân bị ảnh hưởng bởi thiên
+                                tai với mục tiêu đảm bảo tính công khai, minh
+                                bạch và hiệu quả trong quản lý quyên góp và phân
+                                phối tài trợ.
+                            </p>
+                        </section>
+                        <section class="description__info">
+                            <h3 class="description__title">Mô tả chung</h3>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;- Đồ án này được phát triển với mục
+                                tiêu xây dựng một hệ thống hỗ trợ từ thiện trực
+                                tuyến dành riêng cho các vùng bị ảnh hưởng bởi
+                                thiên tai, đặc biệt là lũ lụt. Hệ thống mang đến
+                                một nền tảng minh bạch, nhanh chóng và tiện lợi
+                                để kết nối các nhà hảo tâm với những người cần
+                                sự hỗ trợ. Qua đó, đồ án không chỉ giúp giải
+                                quyết bài toán quản lý và phân phối nguồn lực mà
+                                còn tăng cường sự tin cậy và hiệu quả trong hoạt
+                                động thiện nguyện.
+                            </p>
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;- Ý nghĩa đồ án:
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;+ Thúc đẩy các hoạt động
+                                thiện nguyện trong cộng đồng
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;+ Giảm thiểu sự lãng phí
+                                và thất thoát trong quản lý tài trợ.
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;+ Đáp ứng kịp thời nhu
+                                cầu hỗ trợ của những vùng chịu ảnh hưởng thiên
+                                tai.
+                            </p>
+
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;- Các đối tượng sử dụng:
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;+ Người đóng góp
+                                (donor): Thực hiện quyên góp qua nhiều hình thức
+                                (tiền mặt, hiện vật).
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;+ Người nhận hỗ trợ
+                                (recipient): Đăng ký nhận các khoản tài trợ hoặc
+                                vật phẩm.
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;+ Tổ chức từ thiện
+                                (organization): Tạo chiến dịch, quản lý các
+                                khoản quyên góp và điều phối cứu trợ.
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;+ Quản trị viên
+                                (adminstrator): Theo dõi và đảm bảo hệ thống
+                                hoạt động đúng quy trình.
+                            </p>
+                        </section>
+
+                        <section class="description__info">
+                            <h3 class="description__title">Mô tả cụ thể</h3>
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;* Chức năng chính:
+                            </p>
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;&nbsp;&nbsp;1. Đăng ký và quản lý
+                                tài khoản
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Người dùng
+                                có thể đăng ký tài khoản với các vai trò khác
+                                nhau: nhà hảo tâm, người nhận hỗ trợ, tổ chức từ
+                                thiện.
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Chức năng
+                                xác minh qua giấy phép hoạt động (đối với tổ
+                                chức).
+                            </p>
+
+                            <br />
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;&nbsp;&nbsp;2. Quyên góp và nhận hỗ
+                                trợ
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Hỗ trợ
+                                quyên góp bằng nhiều hình thức: tiền mặt, chuyển
+                                khoản, ví điện tử, hiện vật.
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Người nhận
+                                hỗ trợ đăng ký nhận tài trợ với thông tin chi
+                                tiết và minh bạch.
+                            </p>
+
+                            <br />
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;&nbsp;&nbsp;3. Quản lý chiến dịch
+                                cứu trợ:
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Tổ chức từ
+                                thiện có thể tạo chiến dịch mới, quản lý ngân
+                                sách, và cập nhật tiến độ.
+                            </p>
+
+                            <br />
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;&nbsp;&nbsp;4. Theo dõi và báo cáo
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Hiển thị
+                                chi tiết số tiền và vật phẩm đã quyên góp.
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Cập nhật
+                                thông tin phân phối, sao kê minh bạch cho cộng
+                                đồng.
+                            </p>
+
+                            <br />
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;&nbsp;&nbsp;5. Phản hồi và đánh giá
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Người dùng
+                                có thể gửi nhận xét về hệ thống hoặc các chiến
+                                dịch từ thiện.
+                            </p>
+                            <br />
+
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;* Công nghệ sử dụng:
+                            </p>
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;&nbsp;&nbsp;1. Backend
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Node.js và
+                                Express.js: Xây dựng API và xử lý logic server
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- MongoDB:
+                                Cơ sở dữ liệu NoSQL để lưu trữ thông tin người
+                                dùng, quyên góp, chiến dịch
+                            </p>
+                            <br />
+
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;&nbsp;&nbsp;2. Frontend
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- HTML, CSS,
+                                JavaScript: Tạo giao diện người dùng tương tác
+                                và thân thiện.
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Bootstrap:
+                                Đảm bảo giao diện responsive trên các thiết bị.
+                            </p>
+                            <br />
+
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;&nbsp;&nbsp;3. Dịch vụ khác
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-
+                                Cloudinary: Lưu trữ và quản lý hình ảnh (chứng
+                                từ, hình ảnh phản hồi).
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Leaflet
+                                Heatmap: Tạo bản đồ nhiệt thể hiện mức độ ảnh
+                                hưởng của bão lũ và tình hình cứu trợ.
+                            </p>
+                            <br />
+
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;* Tính năng nổi bật:
+                            </p>
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;&nbsp;&nbsp;1. Minh bạch:
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Công khai
+                                thông tin quyên góp và sao kê tài chính.
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Báo cáo
+                                chi tiết phân phối hỗ trợ.
+                            </p>
+                            <br />
+
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;&nbsp;&nbsp;2. Tương tác cao:
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Hỗ trợ
+                                bình luận, phản hồi, và theo dõi chiến dịch từ
+                                thiện.
+                            </p>
+
+                            <br />
+
+                            <p class="description__desc description__sub-title">
+                                &nbsp;&nbsp;&nbsp;&nbsp;3. Bản đồ lũ lụt
+                                (Heatmap)
+                            </p>
+
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Hiển thị
+                                các vùng bị ảnh hưởng để ưu tiên hỗ trợ
+                            </p>
+                            <p class="description__desc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Cập nhật
+                                thông tin thời gian thực từ các tổ chức khí
+                                tượng.
+                            </p>
+                            <br />
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="content">
+                <div class="footer__wrap">
+                    <section class="footer__info">
+                        <a href="index.html">
+                            <img
+                                src="../assets/image/logo.svg"
+                                alt="Donation"
+                                class="logo footer-logo"
+                            />
+                        </a>
+                        <p class="footer__desc">
+                            Một trái tim - Một hành động - Một thay đổi.
+                        </p>
+                    </section>
+
+                    <section class="footer__contact">
+                        <article class="footer__article">
+                            <h3 class="footer__article--title">Chi tiết</h3>
+                            <a
+                                href="./information.html"
+                                class="footer__article--link"
+                                >Thông tin cá nhân</a
+                            >
+                            <a
+                                href="./feedback.html"
+                                class="footer__article--link"
+                                >Đóng góp phản hồi</a
+                            >
+                            <a
+                                href="./addBlogs.html"
+                                class="footer__article--link"
+                                >Thêm bài viết</a
+                            >
+                            <a
+                                href="index.html#donate"
+                                class="footer__article--link"
+                                >Xuất hóa đơn sao kê</a
+                            >
+                            <a
+                                href="./aboutProject.html"
+                                class="footer__article--link"
+                                >Giới thiệu đồ án</a
+                            >
+                            <a
+                                href="./addCampaign.html"
+                                id="addCampaign"
+                                style="display: none"
+                                class="footer__article--link"
+                                >Tạo chiến dịch từ thiện</a
+                            >
+                        </article>
+                    </section>
+
+                    <section class="footer__social">
+                        <h3 class="footer__social--title">Thông tin liên hệ</h3>
+                        <div class="footer__social--wrap">
+                            <a href="#!" class="footer__social--link">
+                                <img
+                                    src="../assets/image/fb.svg"
+                                    alt="Facebook"
+                                    class="footer__social--img"
+                                />
+                            </a>
+
+                            <a href="#!" class="footer__social--link">
+                                <img
+                                    src="../assets/image/x.svg"
+                                    alt="X"
+                                    class="footer__social--img"
+                                />
+                            </a>
+
+                            <a href="#!" class="footer__social--link">
+                                <img
+                                    src="../assets/image/zalo.svg"
+                                    alt="Zalo"
+                                    class="footer__social--img"
+                                />
+                            </a>
+                        </div>
+                        <h3 class="footer__social--title">Thư điện tử</h3>
+                        <p class="footer__social--desc">
+                            Liên hệ với chúng tôi qua thư điện tử
+                        </p>
+                        <div class="footer__social--subscribe">
+                            <input
+                                type="text"
+                                placeholder="Nhập email của bạn..."
+                                class="footer__social--input"
+                            />
+                            <button class="btn footer__btn">Gửi</button>
+                        </div>
+                    </section>
+                </div>
+
+                <p class="footer__policy">© 2024 MIFU. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Firebase SDK -->
+        <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+
+        <script>
+            document
+                .getElementById("role")
+                .addEventListener("change", function () {
+                    const uploadContainer =
+                        document.getElementById("uploadContainer");
+                    if (this.value === "organization") {
+                        uploadContainer.style.display = "block";
+                    } else {
+                        uploadContainer.style.display = "none";
+                    }
+                });
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/main.js"></script>
+    </body>
+</html>

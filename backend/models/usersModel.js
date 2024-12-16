@@ -50,6 +50,13 @@ const userSchema = new mongoose.Schema(
                 return this.role === "organization";
             },
         },
+        organizationCertificate: {
+            type: String,
+            default: false,
+            required: function () {
+                return this.role === "organization";
+            },
+        },
     },
     { timestamps: true }
 );

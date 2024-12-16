@@ -6,10 +6,7 @@ const {
     userLogout,
 } = require("../controllers/authController");
 
-const {
-    verifyToken,
-    verifyTokenandAdminAuth,
-} = require("../middlewares/middlewareController");
+const { verifyToken } = require("../middlewares/middlewareController");
 
 const router = express.Router();
 

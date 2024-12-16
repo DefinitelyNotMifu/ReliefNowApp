@@ -105,6 +105,11 @@
         <link rel="stylesheet" href="../assets/css/reset.css" />
         <link rel="stylesheet" href="../assets/css/base.css" />
         <link rel="stylesheet" href="../assets/css/styles.css" />
+
+        <!-- Firebase App (the core Firebase SDK) -->
+        <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+        <!-- Firebase Authentication -->
+        <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"></script>
     </head>
     <body>
         <header class="header">
@@ -121,22 +126,20 @@
 
                     <ul class="navbar__list">
                         <li class="navbar__item">
-                            <a
-                                href="./index.html"
-                                class="navbar__item--link navbar__item--active"
+                            <a href="./index.html" class="navbar__item--link"
                                 >Trang chủ</a
                             >
                         </li>
 
                         <li class="navbar__item">
-                            <a href="./news.html" class="navbar__item--link"
+                            <a href="./blogs.html" class="navbar__item--link"
                                 >Tin tức</a
                             >
                         </li>
 
                         <li class="navbar__item dropdown">
                             <a
-                                href="#"
+                                href="catastrophe-maps.html"
                                 class="navbar__item--link dropdown-toggle"
                                 id="navbarMapDropdown"
                                 role="button"
@@ -152,23 +155,35 @@
                                 <li>
                                     <a
                                         class="dropdown-item navbar__item--link"
-                                        href="#"
-                                        >Bản đồ tình hình lũ</a
+                                        href="./catastrophe-maps.html"
+                                        >Bản đồ tình thiên tai</a
                                     >
                                 </li>
                                 <li>
                                     <a
                                         class="dropdown-item navbar__item--link"
-                                        href="#"
+                                        href="./donation-maps.html"
                                         >Bản đồ phân bố cứu trợ</a
                                     >
                                 </li>
                             </ul>
                         </li>
 
-                        <li class="navbar__item">
+                        <li class="navbar__item" id="donation">
                             <a href="./donate.html" class="navbar__item--link"
                                 >Ủng hộ</a
+                            >
+                        </li>
+                        <li class="navbar__item" id="distribution">
+                            <a
+                                href="./distribution.html"
+                                class="navbar__item--link"
+                                >Nhận ủng hộ</a
+                            >
+                        </li>
+                        <li class="navbar__item" id="campaign">
+                            <a href="./campaign.html" class="navbar__item--link"
+                                >Chiến dịch từ thiện</a
                             >
                         </li>
                     </ul>
@@ -353,6 +368,27 @@
                                 <span class="form-message"></span>
                             </div>
 
+                            <!-- File upload container for 'organization' role -->
+                            <div
+                                class="form-group"
+                                id="uploadContainer"
+                                style="display: none"
+                            >
+                                <label
+                                    for="organizationCertificate"
+                                    class="form-label"
+                                    >Tải lên chứng nhận tổ chức</label
+                                >
+                                <input
+                                    id="organizationCertificate"
+                                    name="organizationCertificate"
+                                    type="file"
+                                    class="send-control"
+                                    accept="image/*"
+                                />
+                                <span class="form-message"></span>
+                            </div>
+
                             <div class="form-group">
                                 <label for="password" class="form-label"
                                     >Mật khẩu</label
@@ -389,6 +425,36 @@
                             <button class="form-submit">Đăng ký</button>
                         </form>
                     </div>
+                    <!-- Form OTP sẽ hiển thị sau khi gửi OTP -->
+                    <div
+                        class="form-group"
+                        id="otp-group"
+                        style="display: none"
+                    >
+                        <label for="otp" class="form-label">Nhập mã OTP</label>
+                        <input
+                            id="otp"
+                            name="otp"
+                            type="text"
+                            placeholder="Nhập mã OTP"
+                            class="form-control"
+                            required
+                            maxlength="6"
+                            pattern="\d*"
+                        />
+                        <span class="form-message"></span>
+                        <button
+                            class="form-submit"
+                            id="opt-btn"
+                            type="button"
+                            onclick="verifyOTP(event)"
+                        >
+                            Xác thực OTP
+                        </button>
+                    </div>
+
+                    <!-- reCAPTCHA -->
+                    <div id="recaptcha-container"></div>
                 </div>
             </div>
         </main>
@@ -401,32 +467,48 @@
                             <img
                                 src="../assets/image/logo.svg"
                                 alt="Donation"
-                                class="logo"
+                                class="logo footer-logo"
                             />
                         </a>
                         <p class="footer__desc">
-                            Một tấm lòng cho đi, một nụ cười nhận lại. Chung sức
-                            cùng dân tộc vượt qua bão lũ.
+                            Một trái tim - Một hành động - Một thay đổi.
                         </p>
                     </section>
 
                     <section class="footer__contact">
                         <article class="footer__article">
-                            <h3 class="footer__article--title">Tư vấn</h3>
-                            <a href="#!" class="footer__article--link"
-                                >Trung tâm tư vấn</a
+                            <h3 class="footer__article--title">Chi tiết</h3>
+                            <a
+                                href="./information.html"
+                                class="footer__article--link"
+                                >Thông tin cá nhân</a
                             >
-                            <a href="#!" class="footer__article--link"
-                                >Thông tin Tài khoản</a
+                            <a
+                                href="./feedback.html"
+                                class="footer__article--link"
+                                >Đóng góp phản hồi</a
                             >
-                            <a href="#!" class="footer__article--link"
-                                >Điều khoản</a
+                            <a
+                                href="./addBlogs.html"
+                                class="footer__article--link"
+                                >Thêm bài viết</a
                             >
-                            <a href="#!" class="footer__article--link"
+                            <a
+                                href="index.html#donate"
+                                class="footer__article--link"
                                 >Xuất hóa đơn sao kê</a
                             >
-                            <a href="#!" class="footer__article--link"
-                                >Liên hệ</a
+                            <a
+                                href="./aboutProject.html"
+                                class="footer__article--link"
+                                >Giới thiệu đồ án</a
+                            >
+                            <a
+                                href="./addCampaign.html"
+                                id="addCampaign"
+                                style="display: none"
+                                class="footer__article--link"
+                                >Tạo chiến dịch từ thiện</a
                             >
                         </article>
                     </section>
@@ -477,6 +559,10 @@
             </div>
         </footer>
 
+        <!-- Firebase SDK -->
+        <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+
         <script>
             document
                 .getElementById("role")
@@ -490,6 +576,7 @@
                     }
                 });
         </script>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <script src="../assets/js/main.js"></script>
     </body>

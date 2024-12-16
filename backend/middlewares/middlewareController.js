@@ -1,3 +1,6 @@
+const cloudinary = require("../controllers/cloudinary");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+
 const jwt = require("jsonwebtoken");
 
 // VERIFY TOKEN
@@ -28,4 +31,14 @@ const verifyTokenandAdminAuth = (req, res, next) => {
     });
 };
 
-module.exports = { verifyToken, verifyTokenandAdminAuth };
+// Cấu hình Multer để lưu ảnh lên Cloudinary
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: "donation-app", // Thư mục lưu ảnh trên Cloudinary
+        format: async (req, file) => "jpg", // Định dạng ảnh
+        public_id: (req, file) => file.originalname,
+    },
+});
+
+module.exports = { verifyToken, verifyTokenandAdminAuth, storage };

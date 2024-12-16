@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Donation Online</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="../assets/image/favicons/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="../assets/image/favicons/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="../assets/image/favicons/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="../assets/image/favicons/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="../assets/image/favicons/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="../assets/image/favicons/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="../assets/image/favicons/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="../assets/image/favicons/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../assets/image/favicons/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="../assets/image/favicons/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../assets/image/favicons/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="../assets/image/favicons/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../assets/image/favicons/favicon-16x16.png"
+        />
+        <link rel="manifest" href="../assets/image/favicons/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="../assets/image/favicons/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Bootstrap CSS v5.3.3 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css" />
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../assets/fonts/stylesheet.css" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../assets/css/reset.css" />
+        <link rel="stylesheet" href="../assets/css/base.css" />
+        <link rel="stylesheet" href="../assets/css/styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div id="myToast"></div>
+            <div class="content">
+                <nav class="navbar">
+                    <a href="index.html">
+                        <img
+                            src="../assets/image/logo.svg"
+                            alt="Donation"
+                            class="logo"
+                        />
+                    </a>
+
+                    <ul class="navbar__list">
+                        <li class="navbar__item">
+                            <a href="./index.html" class="navbar__item--link"
+                                >Trang chủ</a
+                            >
+                        </li>
+
+                        <li class="navbar__item">
+                            <a href="./blogs.html" class="navbar__item--link"
+                                >Tin tức</a
+                            >
+                        </li>
+
+                        <li class="navbar__item dropdown">
+                            <a
+                                href="./catastrophe-maps.html"
+                                class="navbar__item--link dropdown-toggle"
+                                id="navbarMapDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Bản đồ
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarMapDropdown"
+                            >
+                                <li>
+                                    <a
+                                        class="dropdown-item navbar__item--link"
+                                        href="./catastrophe-maps.html"
+                                        >Bản đồ tình thiên tai</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item navbar__item--link"
+                                        href="./donation-maps.html"
+                                        >Bản đồ phân bố cứu trợ</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="navbar__item" id="donation">
+                            <a href="./donate.html" class="navbar__item--link"
+                                >Ủng hộ</a
+                            >
+                        </li>
+
+                        <li class="navbar__item" id="distribution">
+                            <a
+                                href="./distribution.html"
+                                class="navbar__item--link navbar__item--active"
+                                >Nhận ủng hộ</a
+                            >
+                        </li>
+                        <li class="navbar__item" id="campaign">
+                            <a href="./campaign.html" class="navbar__item--link"
+                                >Chiến dịch từ thiện</a
+                            >
+                        </li>
+                    </ul>
+
+                    <section id="auth" class="navbar__btn--wrap">
+                        <a
+                            id="linkLogin"
+                            class="navbar__btn--link"
+                            href="./login.html"
+                            >Đăng nhập</a
+                        >
+                        <a
+                            id="linkLogout"
+                            class="btn navbar--btn"
+                            href="#"
+                            onclick="logout()"
+                            style="display: none"
+                            >Đăng xuất</a
+                        >
+                    </section>
+
+                    <section
+                        id="userDropdown"
+                        class="navbar__item dropdown navbar__btn--wrap"
+                        style="display: none"
+                    >
+                        <a
+                            href="#"
+                            class="navbar__item--link dropdown-toggle"
+                            id="navbarUserDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <span id="usernameDisplay"></span>
+                        </a>
+                        <ul
+                            class="dropdown-menu"
+                            aria-labelledby="navbarUserDropdown"
+                        >
+                            <li>
+                                <a
+                                    class="dropdown-item navbar__item--link"
+                                    href="./information.html"
+                                    >Thông tin cá nhân</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="dropdown-item navbar__item--link"
+                                    href="#"
+                                    onclick="logout(event)"
+                                    >Đăng xuất</a
+                                >
+                            </li>
+                        </ul>
+                    </section>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="distribution">
+                <div class="content">
+                    <h2 class="distribution__title text-center">
+                        Đăng Ký Nhận Ủng Hộ Từ Thiện
+                    </h2>
+                    <section class="distribution__info">
+                        <figure class="donation__wrap--figure">
+                            <img
+                                src="../assets/image/typhoon_01.jpg"
+                                alt="Catastrophe"
+                                class="donation__wrap--img"
+                            />
+                        </figure>
+                        <section class="distribution__wrap">
+                            <figcaption class="distribution--figcaption">
+                                <h2
+                                    class="distribution--figcaption__title text-center"
+                                >
+                                    ĐỦ VÀ CẦN
+                                </h2>
+                                <p class="distribution--figcaption__desc">
+                                    Rất nhiều người đang chịu ảnh hưởng của bão
+                                    lũ, thiên tai. Chỉ lấy khi bạn thật sự cần,
+                                    và lấy một lượng đủ dùng. Cùng nhau san sẻ,
+                                    chung tay chống lại thiên tai!
+                                </p>
+                                <p class="distribution--figcaption__desc">
+                                    Nhập vào vật phẩm hoặc tiền mà bạn mong muốn
+                                    nhận, tình nguyện viên sẽ liên hệ trong thời
+                                    gian sớm nhất!
+                                </p>
+                            </figcaption>
+                            <section id="donationTotal">
+                                <h3 class="donationTotal__title">
+                                    Quỹ thiện nguyện chúng tôi hiện còn lại:
+                                </h3>
+                            </section>
+                        </section>
+                    </section>
+
+                    <form
+                        id="distributionForm"
+                        onsubmit="getDistribution(event)"
+                    >
+                        <div class="mb-3">
+                            <label for="distributionType" class="form-label"
+                                >Hình thức nhận ủng hộ</label
+                            >
+                            <select
+                                class="form-select"
+                                id="distributionType"
+                                required
+                            >
+                                <option value="" disabled selected>
+                                    Chọn hình thức nhận ủng hộ...
+                                </option>
+                                <option value="money">
+                                    Nhận ủng hộ bằng Tiền
+                                </option>
+                                <option value="inKind">
+                                    Nhận ủng hộ bằng Hiện vật
+                                </option>
+                            </select>
+                        </div>
+
+                        <div id="moneyDistribution" style="display: none">
+                            <div class="mb-3">
+                                <label
+                                    for="distributionAmount"
+                                    class="form-label"
+                                    >Số tiền mong muốn nhận (VND)</label
+                                >
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="distributionAmount"
+                                    placeholder="Nhập số tiền..."
+                                />
+                            </div>
+                        </div>
+
+                        <div id="inKindDistribution" style="display: none">
+                            <h4>Chọn loại hiện vật mong muốn nhận</h4>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Tên hiện vật</th>
+                                        <th>Số lượng</th>
+                                        <th>Đơn vị tính</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inKindTableBody">
+                                    <tr>
+                                        <td>
+                                            <select
+                                                class="form-control itemDistributionName"
+                                            >
+                                                <option
+                                                    value=""
+                                                    disabled
+                                                    selected
+                                                >
+                                                    Chọn vật phẩm
+                                                </option>
+                                                <option value="Rice">
+                                                    Gạo
+                                                </option>
+                                                <option value="Noodle">
+                                                    Mì
+                                                </option>
+                                                <option value="Water">
+                                                    Nước lọc
+                                                </option>
+                                                <option value="Medicine">
+                                                    Thuốc
+                                                </option>
+                                                <option value="Clothes">
+                                                    Quần áo
+                                                </option>
+                                                <option value="Shoes">
+                                                    Giày dép
+                                                </option>
+                                                <option value="Lamp">
+                                                    Đèn
+                                                </option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input
+                                                type="number"
+                                                class="form-control itemDistributionQuantity"
+                                                placeholder="Nhập số lượng..."
+                                            />
+                                        </td>
+                                        <td>
+                                            <select
+                                                class="form-control itemDistributionUnit"
+                                            >
+                                                <option
+                                                    value=""
+                                                    disabled
+                                                    selected
+                                                >
+                                                    Chọn
+                                                </option>
+                                                <option value="Kg">Kg</option>
+                                                <option value="Piece">
+                                                    Cái
+                                                </option>
+                                                <option value="Box">
+                                                    Thùng
+                                                </option>
+                                                <option value="Litre">
+                                                    Lít
+                                                </option>
+                                                <option value="Strip">
+                                                    Vỉ
+                                                </option>
+                                                <option value="Set">Bộ</option>
+                                                <option value="Pair">
+                                                    Đôi
+                                                </option>
+                                            </select>
+                                        </td>
+
+                                        <td>
+                                            <button
+                                                type="button"
+                                                class="removeInKindItem"
+                                            >
+                                                X
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                id="addInKindItem"
+                            >
+                                Thêm hiện vật
+                            </button>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Đăng ký nhận ủng hộ
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="content">
+                <div class="footer__wrap">
+                    <section class="footer__info">
+                        <a href="index.html">
+                            <img
+                                src="../assets/image/logo.svg"
+                                alt="Donation"
+                                class="logo footer-logo"
+                            />
+                        </a>
+                        <p class="footer__desc">
+                            Một trái tim - Một hành động - Một thay đổi.
+                        </p>
+                    </section>
+
+                    <section class="footer__contact">
+                        <article class="footer__article">
+                            <h3 class="footer__article--title">Chi tiết</h3>
+                            <a
+                                href="./information.html"
+                                class="footer__article--link"
+                                >Thông tin cá nhân</a
+                            >
+                            <a
+                                href="./feedback.html"
+                                class="footer__article--link"
+                                >Đóng góp phản hồi</a
+                            >
+                            <a
+                                href="./addBlogs.html"
+                                class="footer__article--link"
+                                >Thêm bài viết</a
+                            >
+                            <a
+                                href="index.html#donate"
+                                class="footer__article--link"
+                                >Xuất hóa đơn sao kê</a
+                            >
+                            <a
+                                href="./aboutProject.html"
+                                class="footer__article--link"
+                                >Giới thiệu đồ án</a
+                            >
+                            <a
+                                href="./addCampaign.html"
+                                id="addCampaign"
+                                style="display: none"
+                                class="footer__article--link"
+                                >Tạo chiến dịch từ thiện</a
+                            >
+                        </article>
+                    </section>
+
+                    <section class="footer__social">
+                        <h3 class="footer__social--title">Thông tin liên hệ</h3>
+                        <div class="footer__social--wrap">
+                            <a href="#!" class="footer__social--link">
+                                <img
+                                    src="../assets/image/fb.svg"
+                                    alt="Facebook"
+                                    class="footer__social--img"
+                                />
+                            </a>
+
+                            <a href="#!" class="footer__social--link">
+                                <img
+                                    src="../assets/image/x.svg"
+                                    alt="X"
+                                    class="footer__social--img"
+                                />
+                            </a>
+
+                            <a href="#!" class="footer__social--link">
+                                <img
+                                    src="../assets/image/zalo.svg"
+                                    alt="Zalo"
+                                    class="footer__social--img"
+                                />
+                            </a>
+                        </div>
+                        <h3 class="footer__social--title">Thư điện tử</h3>
+                        <p class="footer__social--desc">
+                            Liên hệ với chúng tôi qua thư điện tử
+                        </p>
+                        <div class="footer__social--subscribe">
+                            <input
+                                type="text"
+                                placeholder="Nhập email của bạn..."
+                                class="footer__social--input"
+                            />
+                            <button class="btn footer__btn">Gửi</button>
+                        </div>
+                    </section>
+                </div>
+
+                <p class="footer__policy">© 2024 MIFU. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+            const itemUnits = {
+                Rice: "Kg",
+                Noodle: "Box",
+                Medicine: "Strip",
+                Clothes: "Set",
+                Shoes: "Pair",
+                Lamp: "Piece",
+            };
+
+            // Hàm để cập nhật đơn vị khi loại hiện vật thay đổi
+            const updateUnitOnChange = (selectElement) => {
+                const itemName = selectElement.value;
+                const unitSelect = selectElement
+                    .closest("tr")
+                    .querySelector(".itemDistributionUnit");
+
+                if (itemUnits[itemName]) {
+                    unitSelect.value = itemUnits[itemName]; // Cập nhật đơn vị tính tương ứng
+                    unitSelect.disabled = true; // Vô hiệu hóa lựa chọn đơn vị
+                } else {
+                    unitSelect.value = ""; // Đặt giá trị rỗng nếu không có đơn vị
+                    unitSelect.disabled = false; // Cho phép chọn đơn vị
+                }
+            };
+
+            // Gán sự kiện cho dropdown loại hiện vật
+            document
+                .getElementById("inKindTableBody")
+                .addEventListener("change", (event) => {
+                    if (
+                        event.target.classList.contains("itemDistributionName")
+                    ) {
+                        updateUnitOnChange(event.target);
+                    }
+                });
+            // Hiện thị trường cho loại ủng hộ
+            document
+                .getElementById("distributionType")
+                .addEventListener("change", function () {
+                    const moneyDonation =
+                        document.getElementById("moneyDistribution");
+                    const inKindDonation =
+                        document.getElementById("inKindDistribution");
+
+                    if (this.value === "money") {
+                        moneyDonation.style.display = "block";
+                        inKindDonation.style.display = "none";
+                    } else if (this.value === "inKind") {
+                        moneyDonation.style.display = "none";
+                        inKindDonation.style.display = "block";
+                    }
+                });
+
+            // Thêm dòng mới vào bảng hiện vật
+            document
+                .getElementById("addInKindItem")
+                .addEventListener("click", function () {
+                    const newRow = document.createElement("tr");
+                    newRow.innerHTML = `
+                                            <td>
+                                            <select
+                                                class="form-control itemDistributionName"
+                                            >
+                                                <option
+                                                    value=""
+                                                    disabled
+                                                    selected
+                                                >
+                                                    Chọn vật phẩm
+                                                </option>
+                                                <option value="Rice">
+                                                    Gạo
+                                                </option>
+                                                <option value="Noodle">
+                                                    Mì
+                                                </option>
+                                                <option value="Water">
+                                                    Nước lọc
+                                                </option>
+                                                <option value="Medicine">
+                                                    Thuốc
+                                                </option>
+                                                <option value="Clothes">
+                                                    Quần áo
+                                                </option>
+                                                <option value="Shoes">
+                                                    Giày dép
+                                                </option>
+                                                <option value="Lamp">
+                                                    Đèn
+                                                </option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input
+                                                type="number"
+                                                class="form-control itemDistributionQuantity"
+                                                placeholder="Nhập số lượng..."
+                                            />
+                                        </td>
+                                        <td>
+                                            <select
+                                                class="form-control itemDistributionUnit"
+                                            >
+                                                <option
+                                                    value=""
+                                                    disabled
+                                                    selected
+                                                >
+                                                    Chọn
+                                                </option>
+                                                <option value="Kg">Kg</option>
+                                                <option value="Piece">
+                                                    Cái
+                                                </option>
+                                                <option value="Box">
+                                                    Thùng
+                                                </option>
+                                                <option value="Litre">
+                                                    Lít
+                                                </option>
+                                                <option value="Strip">
+                                                    Vỉ
+                                                </option>
+                                                <option value="Set">Bộ</option>
+                                                <option value="Pair">
+                                                    Đôi
+                                                </option>
+                                            </select>
+                                        </td>
+
+                                        <td>
+                                            <button
+                                                type="button"
+                                                class="removeInKindItem"
+                                            >
+                                                X
+                                            </button>
+                                        </td>
+                            `;
+                    document
+                        .getElementById("inKindTableBody")
+                        .appendChild(newRow);
+                });
+
+            document
+                .getElementById("inKindTableBody")
+                .addEventListener("click", (event) => {
+                    if (event.target.classList.contains("removeInKindItem")) {
+                        const row = event.target.closest("tr");
+                        row.remove();
+                    }
+                });
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/main.js"></script>
+    </body>
+</html>
